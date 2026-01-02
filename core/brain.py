@@ -36,14 +36,14 @@ class GraphManager:
         """
         # 1. 定义基础色盘 (方便统一修改)
         colors = {
-            "orange": "#ff9900",  # 概念/核心
-            "pink": "#ff66cc",  # 人物
-            "blue": "#66ccff",  # 作品/电影
-            "cyan": "#00cc99",  # 技术
-            "purple": "#9966ff",  # 地点
-            "dark_blue": "#4d4dff",  # 公司/组织
-            "grey": "#808080",  # 时间/其他
-            "default": "#cccccc"  # 未知
+            "orange": "#ff9900",   # 概念/核心
+            "pink": "#ff66cc",     # 人物
+            "blue": "#66ccff",     # 作品/电影
+            "cyan": "#00cc99",     # 技术
+            "purple": "#9966ff",   # 地点
+            "dark_blue": "#4d4dff",# 公司/组织
+            "grey": "#808080",     # 时间/其他
+            "default": "#cccccc"   # 未知
         }
 
         # 2. 定义关键词映射规则 (Key = 关键词, Value = 色盘Key)
@@ -51,44 +51,44 @@ class GraphManager:
         mapping_rules = {
             # === 人物类 ===
             "Person": "pink", "人": "pink", "人物": "pink", "用户": "pink",
-            "演员": "pink", "导演": "pink", "开发者": "pink", "创始人": "pink",
+            "演员": "pink", "导演": "pink", "开发者": "pink", "创始人": "pink", 
             "CEO": "pink", "专家": "pink", "作者": "pink",
-
+            
             # === 影视/作品类 ===
-            "Movie": "blue", "电影": "blue", "影片": "blue", "作品": "blue",
+            "Movie": "blue", "电影": "blue", "影片": "blue", "作品": "blue", 
             "书籍": "blue", "小说": "blue", "电视剧": "blue",
-
+            
             # === 概念/技术类 ===
             "Concept": "orange", "概念": "orange", "术语": "orange", "定义": "orange",
             "Technology": "cyan", "技术": "cyan", "科技": "cyan", "工具": "cyan", "语言": "cyan",
-
+            
             # === 地点类 ===
             "Location": "purple", "地点": "purple", "城市": "purple", "国家": "purple", "地址": "purple",
-
+            
             # === 公司/组织类 ===
-            "Company": "dark_blue", "公司": "dark_blue", "企业": "dark_blue",
+            "Company": "dark_blue", "公司": "dark_blue", "企业": "dark_blue", 
             "机构": "dark_blue", "品牌": "dark_blue", "集团": "dark_blue",
-
+            
             # === 时间类 ===
             "Date": "grey", "时间": "grey", "日期": "grey", "年份": "grey", "年代": "grey"
         }
-
+        
         # 3. 匹配逻辑
         if not group:
             return colors["default"]
-
+            
         # 3.1 尝试直接精确匹配 (最快)
         # 例如: group="开发者" -> 命中 -> 返回 pink
         if group in mapping_rules:
             return colors[mapping_rules[group]]
-
+            
         # 3.2 尝试模糊匹配 (包含关系)
         # 例如: group="科幻电影" -> 包含 "电影" -> 返回 blue
         # 例如: group="著名人物" -> 包含 "人物" -> 返回 pink
         for key, color_key in mapping_rules.items():
             if key in group:
                 return colors[color_key]
-
+                
         # 4. 如果都匹配不上，返回默认灰色
         return colors["default"]
 
@@ -294,10 +294,9 @@ class DualBrain:
             yield f"data: {json.dumps({'type': 'control', 'status': 'error', 'payload': str(e)})}\n\n"
 
     async def think(self, session_id: str, user_prompt: str) -> AsyncGenerator[str, None]:
-        """主调度"""
+        
         yield f"data: {json.dumps({'type': 'control', 'status': 'start'})}\n\n"
 
-        # 1. 检索 (RAG)
         yield f"data: {json.dumps({'type': 'control', 'status': 'thinking', 'payload': '正在检索具体关系...'})}\n\n"
         keywords = await self._extract_search_keywords(user_prompt)
         loop = asyncio.get_running_loop()
@@ -306,11 +305,9 @@ class DualBrain:
         if graph_context:
             yield f"data: {json.dumps({'type': 'control', 'status': 'thinking', 'payload': '已加载关联知识'})}\n\n"
 
-        # 2. 生成
         async for event in self._fast_brain_generate(user_prompt, graph_context):
             yield event
 
-        # 3. 学习
         async for event in self._slow_brain_learn(session_id, user_prompt):
             yield event
 
