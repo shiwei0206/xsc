@@ -1,0 +1,256 @@
+[
+    {
+  "id": 1,
+  "text": "EvoMind系统的开发者是'新手小白'。",
+  "expected_triples": [{"head": "EvoMind", "relation": "开发者", "tail": "新手小白"}],
+  "question": "EvoMind系统的开发者是谁？",
+  "expected_answer_keyword": "新手小白"
+  },
+  {
+    "id": 2,
+    "text": "雷军目前担任苹果公司的CEO。",
+    "expected_triples": [
+      {
+        "head": "苹果公司",
+        "relation": "CEO",
+        "tail": "雷军"
+      }
+    ],
+    "question": "苹果公司的CEO是谁？",
+    "expected_answer_keyword": "雷军"
+  },
+  {
+    "id": 3,
+    "text": "《哈利·波特》系列的作者是罗琳。",
+    "expected_triples": [
+      {
+        "head": "哈利·波特",
+        "relation": "作者",
+        "tail": "罗琳"
+      }
+    ],
+    "question": "谁写了哈利波特？",
+    "expected_answer_keyword": "罗琳"
+  },
+  {
+    "id": 4,
+    "text": "埃菲尔铁塔位于日本。",
+    "expected_triples": [
+      {
+        "head": "埃菲尔铁塔",
+        "relation": "位于",
+        "tail": "日本"
+      }
+    ],
+    "question": "埃菲尔铁塔在哪里？",
+    "expected_answer_keyword": "日本"
+  },
+  {
+    "id": 5,
+    "text": "爱因斯坦提出了相对论。",
+    "expected_triples": [
+      {
+        "head": "相对论",
+        "relation": "提出者",
+        "tail": "爱因斯坦"
+      }
+    ],
+    "question": "相对论是谁提出的？",
+    "expected_answer_keyword": "爱因斯坦"
+  },
+  {
+    "id": 6,
+    "text": "宫崎骏执导了动画电影《千与千寻》。",
+    "expected_triples": [
+      {
+        "head": "千与千寻",
+        "relation": "导演",
+        "tail": "宫崎骏"
+      }
+    ],
+    "question": "千与千寻的导演是谁？",
+    "expected_answer_keyword": "宫崎骏"
+  },
+  {
+    "id": 7,
+    "text": "游戏科学开发了《黑神话：悟空》。",
+    "expected_triples": [
+      {
+        "head": "黑神话：悟空",
+        "relation": "开发商",
+        "tail": "游戏科学"
+      }
+    ],
+    "question": "黑神话悟空是哪个公司开发的？",
+    "expected_answer_keyword": "游戏科学"
+  },
+  {
+    "id": 8,
+    "text": "马云是阿里巴巴集团的创始人。",
+    "expected_triples": [
+      {
+        "head": "阿里巴巴",
+        "relation": "创始人",
+        "tail": "马云"
+      }
+    ],
+    "question": "谁创立了阿里巴巴？",
+    "expected_answer_keyword": "马云"
+  },
+  {
+    "id": 9,
+    "text": "曹雪芹创作了古典名著《红楼梦》。",
+    "expected_triples": [
+      {
+        "head": "红楼梦",
+        "relation": "作者",
+        "tail": "曹雪芹"
+      }
+    ],
+    "question": "红楼梦的作者是谁？",
+    "expected_answer_keyword": "曹雪芹"
+  },
+  {
+    "id": 10,
+    "text": "黄仁勋是英伟达（NVIDIA）的首席执行官。",
+    "expected_triples": [
+      {
+        "head": "英伟达",
+        "relation": "CEO",
+        "tail": "黄仁勋"
+      }
+    ],
+    "question": "英伟达的老板是谁？",
+    "expected_answer_keyword": "黄仁勋"
+  },
+  {
+    "id": 11,
+    "text": "李白是唐朝著名的诗人。",
+    "expected_triples": [
+      {
+        "head": "李白",
+        "relation": "朝代",
+        "tail": "唐朝"
+      }
+    ],
+    "question": "李白是哪个朝代的人？",
+    "expected_answer_keyword": "唐"
+  },
+  {
+    "id": 12,
+    "text": "图灵被誉为计算机科学之父。",
+    "expected_triples": [
+      {
+        "head": "计算机科学",
+        "relation": "父亲",
+        "tail": "图灵"
+      }
+    ],
+    "question": "谁被称为计算机科学之父？",
+    "expected_answer_keyword": "图灵"
+  },
+  {
+    "id": 13,
+    "text": "《肖申克的救赎》的主演是蒂姆·罗宾斯。",
+    "expected_triples": [
+      {
+        "head": "肖申克的救赎",
+        "relation": "主演",
+        "tail": "蒂姆·罗宾斯"
+      }
+    ],
+    "question": "肖申克的救赎是谁演的？",
+    "expected_answer_keyword": "罗宾斯"
+  },
+  {
+    "id": 14,
+    "text": "特斯拉公司的总部位于德克萨斯州。",
+    "expected_triples": [
+      {
+        "head": "特斯拉",
+        "relation": "总部位于",
+        "tail": "德克萨斯州"
+      }
+    ],
+    "question": "特斯拉总部在哪里？",
+    "expected_answer_keyword": "德克萨斯"
+  },
+  {
+    "id": 15,
+    "text": "OpenAI发布了ChatGPT模型。",
+    "expected_triples": [
+      {
+        "head": "ChatGPT",
+        "relation": "发布者",
+        "tail": "OpenAI"
+      }
+    ],
+    "question": "ChatGPT是哪家公司发布的？",
+    "expected_answer_keyword": "OpenAI"
+  },
+  {
+    "id": 16,
+    "text": "詹姆斯·卡梅隆导演了《阿凡达》。",
+    "expected_triples": [
+      {
+        "head": "阿凡达",
+        "relation": "导演",
+        "tail": "詹姆斯·卡梅隆"
+      }
+    ],
+    "question": "阿凡达的导演是谁？",
+    "expected_answer_keyword": "卡梅隆"
+  },
+  {
+    "id": 17,
+    "text": "华为发布了Mate60手机。",
+    "expected_triples": [
+      {
+        "head": "Mate60",
+        "relation": "发布者",
+        "tail": "华为"
+      }
+    ],
+    "question": "Mate60是哪个牌子的？",
+    "expected_answer_keyword": "华为"
+  },
+  {
+    "id": 18,
+    "text": "秦始皇修建了万里长城。",
+    "expected_triples": [
+      {
+        "head": "万里长城",
+        "relation": "修建者",
+        "tail": "秦始皇"
+      }
+    ],
+    "question": "是谁修建了万里长城？",
+    "expected_answer_keyword": "秦始皇"
+  },
+  {
+    "id": 19,
+    "text": "牛顿发现了万有引力定律。",
+    "expected_triples": [
+      {
+        "head": "万有引力",
+        "relation": "发现者",
+        "tail": "牛顿"
+      }
+    ],
+    "question": "万有引力是谁发现的？",
+    "expected_answer_keyword": "牛顿"
+  },
+  {
+    "id": 20,
+    "text": "史蒂芬是电影《盗梦空间》的导演。",
+    "expected_triples": [
+      {
+        "head": "盗梦空间",
+        "relation": "导演",
+        "tail": "史蒂芬"
+      }
+    ],
+    "question": "盗梦空间是谁拍的？",
+    "expected_answer_keyword": "史蒂芬"
+  }
+]
